@@ -5,7 +5,8 @@ DeviseTokenAuth.setup do |config|
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after
   # each request.
-  config.change_headers_on_each_request = true
+  #
+  config.change_headers_on_each_request = false
   config.cookie_enabled = true
   config.cookie_attributes = { :httponly => true, :expires => Time.now + (7*24*60*60), :domain => :all }
 
