@@ -1,10 +1,8 @@
 class Api::ProjectsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @projects = Project.all_with_users
-    render json: {
-      data: @projects
-    }, status: 200
+    @projects = Project.all_with_users_and_ratings
+    render json: @projects, status: 200
   end
 
   def create

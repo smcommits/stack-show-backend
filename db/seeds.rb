@@ -7,25 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-images_array = ['https://res.cloudinary.com/dfsniizqr/image/upload/v1628838066/bdjy4vr63wjcfktn4mjo.png',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628838044/mze03hdjcopmwqjiq3re.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628838020/a80gkkhg9e157tqanbbc.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628838009/hfra1eh8xp7ffsi3xqfm.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837992/vqah9wmcyofizlqccwja.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837966/l2fxhaiyhn6cbme8qorm.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837954/ozjavne03syq18yvaahh.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837933/m3i86ajk5u8okgoromj2.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837933/m3i86ajk5u8okgoromj2.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837840/h4ycoqm7bqvblbf6esb5.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837813/lfxx6dnho0oycwes0sae.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837794/f3ur7aizl5skpcfznz88.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837784/t9l71jbvmhmnf7ays6cs.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837764/oaknsygfyzahyubzhsc1.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837692/xjcqow5yfeifiewthlm2.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628837673/uuvgcmolayymvtmnnzft.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628828142/nnfhowrpnqh06i07ipjh.jpg',
-                'https://res.cloudinary.com/dfsniizqr/image/upload/v1628826687/jn5glogoftlcc8ahp65y.jpg']
-
+images_array = %w[bdjy4vr63wjcfktn4mjo
+                  mze03hdjcopmwqjiq3re
+                  a80gkkhg9e157tqanbbc
+                  hfra1eh8xp7ffsi3xqfm
+                  vqah9wmcyofizlqccwja
+                  l2fxhaiyhn6cbme8qorm
+                  ozjavne03syq18yvaahh
+                  m3i86ajk5u8okgoromj2
+                  m3i86ajk5u8okgoromj2
+                  h4ycoqm7bqvblbf6esb5
+                  lfxx6dnho0oycwes0sae
+                  f3ur7aizl5skpcfznz88
+                  t9l71jbvmhmnf7ays6cs
+                  oaknsygfyzahyubzhsc1
+                  xjcqow5yfeifiewthlm2
+                  uuvgcmolayymvtmnnzft
+                  nnfhowrpnqh06i07ipjh
+                  jn5glogoftlcc8ahp65y]
 
 20.times do
   user = User.new(
@@ -40,15 +39,21 @@ users = User.order(:created_at).take(17)
 
 users.each_with_index do |user, index|
   title = Faker::App.name
-  image_url = images_array[index]
+  image_path = images_array[index]
   description = Faker::Lorem.paragraph_by_chars(number: 2000)
-  github_url = ""
-  live_demo = ""
+  github_url = ''
+  live_demo = ''
   stack_list = []
-  rand(1...5).times do 
+  rand(1...5).times do
     stack_list.push(Faker::ProgrammingLanguage.name)
   end
 
-  user.projects.create!(title: title, image_url: image_url, description: description, github_url: github_url, live_demo: live_demo, stack_list: stack_list)
+  user.projects.create!(title: title, image_path: image_path, description: description, github_url: github_url,
+                        live_demo: live_demo, stack_list: stack_list)
+end
 
+Project.all.each do |project|
+  User.all.each do |user|
+    project.ratings.create!(stars: rand(2..5), user_id: user.id)
+  end
 end
