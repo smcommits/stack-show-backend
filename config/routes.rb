@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   namespace 'api' do
     resources :projects
+    resources :favorite, only: [:create]
     get '/cloud/sig/new', to: 'cloudinary#create'
+    get '/search/projects', to: 'search#projects'
   end
 end

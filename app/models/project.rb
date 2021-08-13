@@ -2,8 +2,20 @@ class Project < ApplicationRecord
   validates :title, presence: true
   serialize :stack_list, Array
 
+  scope :filter_by_starts_with, ->(query) { where('lower(title) like ?', "#{query}%") }
+
+  
   belongs_to :user
   has_many :ratings, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+  def self.with_users_and_ratings(id)
+    project = find(id)
+    project.attributes.merge(
+      'user' => project.user, 
+      'average_rating' => project.average_rating
+    )
+  end
 
   def self.all_with_users_and_ratings
     projects = all.includes(:user)
@@ -13,6 +25,11 @@ class Project < ApplicationRecord
         'average_rating' => record.average_rating
       )
     end
+  end
+
+  def self.search(query)
+    query = query.downcase
+    all.where('lower(title) LIKE ?', "%#{query}")
   end
 
   def average_rating
@@ -42,5 +59,4 @@ class Project < ApplicationRecord
   def total_coefficient_rating
     (five_stars_ratings * 5) + (four_stars_ratings * 4) + (three_stars_ratings * 3) + (two_stars_ratings * 2) + (one_stars_ratings * 1)
   end
- 
 end
