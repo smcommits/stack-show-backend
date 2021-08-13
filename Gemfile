@@ -45,4 +45,4 @@ gem 'devise_token_auth', '~> 1.2'
 
 gem 'cloudinary', '~> 1.20'
 
-gem "faker", "~> 2.18"
+gem 'faker', '~> 2.18'

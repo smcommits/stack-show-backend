@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   validates :title, presence: true
-
+  serialize :stack_list, Array
   belongs_to :user
 
   def self.all_with_users
