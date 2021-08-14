@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :destroy
   has_many :ratings
   has_many :favorites
+  has_many :favorite_projects, through: :favorites, source: :project
 end

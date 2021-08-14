@@ -1,6 +1,11 @@
 class Api::FavoritesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @favorite_projects = Favorite.current_user_favorites(current_user)
+    render json: @favorite_projects
+  end
+
   def create
     @favorite = current_user.favorites.create!(favorite_params)
     render json: @favorite
