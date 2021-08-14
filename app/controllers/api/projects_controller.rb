@@ -17,7 +17,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.with_users_and_ratings(params[:id])
+    @project = Project.with_users_and_ratings(params[:id], current_user)
     render json: @project
   end
 
