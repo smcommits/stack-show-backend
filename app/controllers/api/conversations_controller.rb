@@ -37,7 +37,4 @@ class Api::ConversationsController < ApplicationController
       head :ok
     end
   end
-
-  private
-
 end

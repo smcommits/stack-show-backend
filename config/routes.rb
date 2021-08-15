@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   namespace 'api' do
     resources :projects
     resources :favorites, only: %i[index create destroy]
-    
-  resources :conversations, only: [:index, :create]
-  resources :messages, only: [:create]
+
+    resources :conversations, only: %i[index create]
+    resources :messages, only: [:create]
     get '/cloud/sig/new', to: 'cloudinary#create'
     get '/search/projects', to: 'search#projects'
     mount ActionCable.server => '/cable'
