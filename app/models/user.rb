@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :favorites
   has_many :favorite_projects, through: :favorites, source: :project
+  has_many :messages
+  has_many :user_conversations
+  has_many :conversation, through: :user_conversations
 end
