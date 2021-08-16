@@ -5,4 +5,9 @@ class Api::SearchController < ApplicationController
     @projects = Project.filter_by_starts_with(params[:query])
     render json: @projects
   end
+
+  def users
+    @users = User.filter_by_starts_with(params[:query])
+    render json: @users
+  end
 end

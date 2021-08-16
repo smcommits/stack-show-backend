@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  scope :filter_by_starts_with, ->(query) { where('lower(name) like ?', "#{query}%") }
+
   validates :name, presence: true
   has_many :projects, dependent: :destroy
   has_many :ratings
@@ -16,5 +18,5 @@ class User < ActiveRecord::Base
   has_many :favorite_projects, through: :favorites, source: :project
   has_many :messages
   has_many :user_conversations
-  has_many :conversation, through: :user_conversations
+  has_many :conversations, through: :user_conversations
 end

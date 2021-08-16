@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     get '/cloud/sig/new', to: 'cloudinary#create'
     get '/search/projects', to: 'search#projects'
+    get '/search/users', to: 'search#users'
     mount ActionCable.server => '/cable'
   end
 end
