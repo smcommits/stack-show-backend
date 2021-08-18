@@ -1,13 +1,9 @@
-class Api::UsersController < ApplicationController 
+class Api::UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def update 
+  def update
     user = current_user
     user.avatar_path = params[:image]
-    if user.save!
-      render json: user
-    end
+    render json: user if user.save!
   end
 end
-
-

@@ -19,16 +19,6 @@ class Project < ApplicationRecord
     )
   end
 
-  def self.all_with_users_and_ratings
-    projects = all.includes(:user)
-    projects.map do |record|
-      record.attributes.merge(
-        'user' => record.user,
-        'average_rating' => record.average_rating
-      )
-    end
-  end
-
   def self.search(query)
     query = query.downcase
     all.where('lower(title) LIKE ?', "%#{query}")
@@ -36,6 +26,7 @@ class Project < ApplicationRecord
 
   def average_rating
     return if total_coefficient_rating === 0
+
     total_coefficient_rating / ratings.count
   end
 

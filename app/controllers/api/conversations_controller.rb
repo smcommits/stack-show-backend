@@ -40,7 +40,7 @@ class Api::ConversationsController < ApplicationController
 
   private
 
-  def conversation_params 
+  def conversation_params
     params.require(:params).permit(:title, :sender_id, :reciever_id)
   end
 end

@@ -48,3 +48,5 @@ gem 'cloudinary', '~> 1.20'
 gem 'faker', '~> 2.18'
 
 gem 'active_model_serializers', '~> 0.10.12'
+
+gem 'will_paginate', '~> 3.3'

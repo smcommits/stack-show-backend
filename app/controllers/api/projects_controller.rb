@@ -1,8 +1,8 @@
 class Api::ProjectsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @projects = Project.all_with_users_and_ratings
-    render json: @projects, status: 200
+    @projects = Project.paginate(page: params[:page], per_page: 12)
+    render json: @projects, page: pagination_dict(@projects)
   end
 
   def create

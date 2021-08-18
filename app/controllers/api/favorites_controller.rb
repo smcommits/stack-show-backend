@@ -2,7 +2,8 @@ class Api::FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @favorite_projects = Favorite.current_user_favorites(current_user)
+    @favorite_projects = current_user.favorite_projects.paginate(page: params[:page], per_page: 12)
+
     render json: @favorite_projects
   end
 
