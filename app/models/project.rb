@@ -35,6 +35,7 @@ class Project < ApplicationRecord
   end
 
   def average_rating
+    return if total_coefficient_rating === 0
     total_coefficient_rating / ratings.count
   end
 

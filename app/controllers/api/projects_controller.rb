@@ -24,6 +24,6 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.permit(:title, :image_url, :description, :github_url, :live_demo)
+    params.permit(:title, :image_path, :description, :github_url, :live_demo)
   end
 end
