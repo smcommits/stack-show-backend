@@ -26,6 +26,48 @@ images_array = %w[bdjy4vr63wjcfktn4mjo
                   nnfhowrpnqh06i07ipjh
                   jn5glogoftlcc8ahp65y]
 
+user_images = %w[ndemf32rf6mrnvwaty40
+                 efmqzebhpzu7r6j9rlyj
+                 hpsijzrysxt5gn5t0gvq
+                 pammp4qh4j21rinp84ei
+                 gdzj2skwgrbibyvlrvpg
+                 itfb3udesvfnaxwjd5je
+                 msmbth6qpi4mr74g3yud
+                 kfboho2895wkmiprh4dl
+                 rida52nm0ee6dd2umjwu
+                 ws5fpk94l23bd7xu21ea
+                 evh8oyql76y0cgcd1gvl
+                 psvxmxhffltfui7kpwfg
+                 pbbvnydiu8kkbmqbvjcu
+                 lmzkg6dbhyqwjvurep5z
+                 a6s8hjtegimpyctfkm3l
+                 fzgt5l8yplqerxo8zg0r
+                 rwlxwyfygvcghr6ewqbx
+                 c6kbiaarlmqeixqeeqnx
+                 zpfe6wcntrpar1f2kdd5
+                 oazdaqhacmpojtg9livz
+                 pr6hihx1lsymqbtgd8ak
+                 mgxj7lmrg2odu87erqld
+                 wgjkfpyont5vnekgeoxl
+                 h2gukhljyeo5ms1lwznj
+                 qoubt5iacth8ew0ghebr
+                 sftslgkou9ghlmmlka3l
+                 hkc32z7f4rtonfq9uett
+                 tw14tveson1k0porjdlc
+                 mq6tqdyedpneopcnpe7i
+                 aeowigttqobeqnjgtft0
+                 cl7xhfavduq0bwadonfs
+                 v8nq4x9r11cr3bhgcm4b
+                 ziqv3h6kodaaunmlifms
+                 pfuwoefpfojbzjallqli
+                 tqtol8ajqsabtgjq622t
+                 f7mf9c10wqkoxvgjzhz2
+                 cavetowajawco9ffjbeq
+                 bpzq456glu09jefwze8l
+                 e74ur2kpdvcwmgspcs9a
+                 zausgeojmvbclerdz6fe
+                 pdc9zidn9zsdyngwiwva]
+
 20.times do
   user = User.new(
     name: Faker::Internet.user_name,
