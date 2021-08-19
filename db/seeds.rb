@@ -7,24 +7,44 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-images_array = %w[bdjy4vr63wjcfktn4mjo
-                  mze03hdjcopmwqjiq3re
-                  a80gkkhg9e157tqanbbc
-                  hfra1eh8xp7ffsi3xqfm
-                  vqah9wmcyofizlqccwja
-                  l2fxhaiyhn6cbme8qorm
-                  ozjavne03syq18yvaahh
-                  m3i86ajk5u8okgoromj2
-                  m3i86ajk5u8okgoromj2
-                  h4ycoqm7bqvblbf6esb5
-                  lfxx6dnho0oycwes0sae
-                  f3ur7aizl5skpcfznz88
-                  t9l71jbvmhmnf7ays6cs
-                  oaknsygfyzahyubzhsc1
-                  xjcqow5yfeifiewthlm2
-                  uuvgcmolayymvtmnnzft
-                  nnfhowrpnqh06i07ipjh
-                  jn5glogoftlcc8ahp65y]
+images_array = %w[product-factory-landing-page-for-adobe-xd_p0ml47
+                  treva-job-hiring-landing-page-for-sketch_prcaox
+                  tour-and-travel-website-for-figma_mjmplf
+                  photographer-free-landing-page-for-figma_yrucfg
+                  trafalgar-landing-page-for-figma_qoa6nw
+                  social-meetup-landing-page-for-sketch_gowrlp
+                  shoply-landing-page_tmn14s
+                  shoply-one-page_rw1b4t
+                  Sello-Mininal-E-Commerce-Creative-Website-Template_nljdrp
+                  Shards-A-Free-Modern-UI-Kit_zoqlw7
+                  shards-dashboard-lite_qnb6lt
+                  mobile-app-landing-page_pfw1uy
+                  music-app-landing-page-for-sketch_sqqr7x
+                  planguru-ui-kit_ch6dbl
+                  photograph-class-website_mzhadd
+                  medi-free-meditation-web-headers-for-figma_vjtkjl
+                  explord-free-ui-kit-for-adobe-xd_fvcxaz
+                  minimal-black-white-website_n2hwst
+                  liquid-design-system_fma0ka
+                  mimini_vbdktg
+                  architecture-landing-page-for-figma_qowrv8
+                  lfa-fashion-agency-web-template_k86olh
+                  hello-landing-page_bkoio0
+                  data-warehouse-landing-page-for-figma_jupfsk
+                  gohub-landing-page_yic9pp
+                  free-ui-elements-1_mrrfb9
+                  Global_oheftu
+                  evelyn_jxama8
+                  edd-landing-page_hsul0b
+                  digital-marketing-landing-page-for-sketch_zvlmzi
+                  case-craft-landing-kit-for-adobe-xd_jgxfof
+                  deck-1_c22x9i
+                  dropcast_tw4utb
+                  cruuunchify-for-invision-studio_z2kw4v
+                  Covid-19-Landing-Page-For-Figma_c3qk7i
+                  creatively-agency-landing-page_ncygjr
+                  brutalism-2_e2obik
+                  bdjy4vr63wjcfktn4mjo_cxiwbc]
 
 user_images = %w[ndemf32rf6mrnvwaty40
                  efmqzebhpzu7r6j9rlyj
