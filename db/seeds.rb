@@ -88,16 +88,17 @@ user_images = %w[ndemf32rf6mrnvwaty40
                  zausgeojmvbclerdz6fe
                  pdc9zidn9zsdyngwiwva]
 
-20.times do
+user_images.length.times do |i|
   user = User.new(
     name: Faker::Internet.user_name,
     email: Faker::Internet.safe_email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    image: user_images[i]
   )
   user.save!
 end
 
-users = User.order(:created_at).take(17)
+users = User.order(:created_at).take(38)
 
 users.each_with_index do |user, index|
   title = Faker::App.name
@@ -116,6 +117,6 @@ end
 
 Project.all.each do |project|
   User.all.each do |user|
-    project.ratings.create!(stars: rand(2..5), user_id: user.id)
+    project.ratings.create!(stars: rand(1..5), user_id: user.id)
   end
 end

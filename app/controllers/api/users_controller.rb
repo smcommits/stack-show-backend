@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
 
   def update
     user = current_user
-    user.avatar_path = params[:image]
+    user.image = params[:image]
     render json: user if user.save!
   end
 end
