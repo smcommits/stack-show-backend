@@ -11,7 +11,7 @@ DeviseTokenAuth.setup do |config|
   config.cookie_attributes = {
     httponly: true,
     expires: Time.now + (7 * 24 * 60 * 60),
-    domain: 'stack-show.herokuapp.com',
+    domain: %w[stack-show.herokuapp.com stack-show-back.herokuapp.com],
     secure: true,
     same_site: :none
   }
