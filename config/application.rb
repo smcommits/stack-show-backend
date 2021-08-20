@@ -41,7 +41,7 @@ end
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://stack-show.herokuapp.com'
+    origins 'http://localhost:3000'
     resource '*', headers: :any, methods: %i[get post delete patch put], credentials: true
   end
 end
