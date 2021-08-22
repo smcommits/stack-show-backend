@@ -9,8 +9,15 @@ module ApplicationCable
     private
 
     def find_verified_user
-      if verified_user = env['warden'].user
-        verified_user
+      uid = request.query_parameters[:uid]
+      token = request.query_parameters[:token]
+      client = request.query_parameters[:client]
+
+      user = User.find_by_uid(uid)
+
+      p user
+      if user && user.valid_token?(token, client)
+        user
       else
         reject_unauthorized_connection
       end
