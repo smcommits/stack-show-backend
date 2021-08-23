@@ -41,7 +41,7 @@ end
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://stack-show.herokuapp.com'
+    origins 'https://stackactive.herokuapp.com',  'http://stackactive.herokuapp.com'
     resource '*',
              headers: :any,
              expose: %w[access-token expiry token-type uid client],
