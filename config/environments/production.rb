@@ -111,5 +111,5 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.web_socket_server_url = 'wss://stack-show-back.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = ['https://stack-show.herokuapp.com', 'http://stack-show.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://stackactive.herokuapp.com', 'http://stackactive.herokuapp.com']
 end
