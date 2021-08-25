@@ -50,3 +50,7 @@ gem 'faker', '~> 2.18'
 gem 'active_model_serializers', '~> 0.10.12'
 
 gem 'will_paginate', '~> 3.3'
+
+gem "rspec-rails", "~> 5.0"
+
+gem "shoulda-matchers", "~> 5.0"
