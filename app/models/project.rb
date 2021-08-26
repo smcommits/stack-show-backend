@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable  Layout/LineLength
 
 class Project < ApplicationRecord
   validates :title, presence: true
@@ -27,7 +27,7 @@ class Project < ApplicationRecord
   end
 
   def average_rating
-    return if total_coefficient_rating === 0
+    return if total_coefficient_rating.zero?
 
     total_coefficient_rating / ratings.count
   end
@@ -56,3 +56,4 @@ class Project < ApplicationRecord
     (five_stars_ratings * 5) + (four_stars_ratings * 4) + (three_stars_ratings * 3) + (two_stars_ratings * 2) + (one_stars_ratings * 1)
   end
 end
+# rubocop:enable Layout/LineLength

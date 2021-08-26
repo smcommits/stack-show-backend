@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Api
   class MessagesController < ApplicationController
     before_action :authenticate_user!
@@ -7,14 +5,13 @@ module Api
     def create
       message = Message.new(message_params)
       conversation = Conversation.find(message_params[:conversation_id])
+      return unless message.save!
 
-      if message.save!
-        serialized_data = ActiveModelSerializers::Adapter::Json.new(
-          MessageSerializer.new(message)
-        ).serializable_hash
-        MessagesChannel.broadcast_to conversation, serialized_data
-        head :ok
-      end
+      serialized_data = ActiveModelSerializers::Adapter::Json.new(
+        MessageSerializer.new(message)
+      ).serializable_hash
+      MessagesChannel.broadcast_to conversation, serialized_data
+      head :ok
     end
 
     private
