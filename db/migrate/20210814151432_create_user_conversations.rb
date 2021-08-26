@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUserConversations < ActiveRecord::Migration[6.1]
   def change
     create_table :user_conversations do |t|

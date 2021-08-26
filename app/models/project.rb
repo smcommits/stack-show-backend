@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Project < ApplicationRecord
   validates :title, presence: true
   serialize :stack_list, Array

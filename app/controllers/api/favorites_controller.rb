@@ -1,25 +1,29 @@
-class Api::FavoritesController < ApplicationController
-  before_action :authenticate_user!
+# frozen_string_literal: true
 
-  def index
-    @favorite_projects = current_user.favorite_projects.paginate(page: params[:page], per_page: 12)
+module Api
+  class FavoritesController < ApplicationController
+    before_action :authenticate_user!
 
-    render json: @favorite_projects
-  end
+    def index
+      @favorite_projects = current_user.favorite_projects.paginate(page: params[:page], per_page: 12)
 
-  def create
-    @favorite = current_user.favorites.create!(favorite_params)
-    render json: @favorite
-  end
+      render json: @favorite_projects
+    end
 
-  def destroy
-    @favorite = Favorite.find(params[:id])
-    render json: { success: true } if @favorite.destroy
-  end
+    def create
+      @favorite = current_user.favorites.create!(favorite_params)
+      render json: @favorite
+    end
 
-  private
+    def destroy
+      @favorite = Favorite.find(params[:id])
+      render json: { success: true } if @favorite.destroy
+    end
 
-  def favorite_params
-    params.require(:params).permit(:project_id)
+    private
+
+    def favorite_params
+      params.require(:params).permit(:project_id)
+    end
   end
 end

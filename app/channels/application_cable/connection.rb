@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user
@@ -16,7 +18,7 @@ module ApplicationCable
       user = User.find_by_uid(uid)
 
       p user
-      if user && user.valid_token?(token, client)
+      if user&.valid_token?(token, client)
         user
       else
         reject_unauthorized_connection

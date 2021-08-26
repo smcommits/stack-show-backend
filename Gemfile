@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -51,6 +53,6 @@ gem 'active_model_serializers', '~> 0.10.12'
 
 gem 'will_paginate', '~> 3.3'
 
-gem "rspec-rails", "~> 5.0"
+gem 'rspec-rails', '~> 5.0'
 
-gem "shoulda-matchers", "~> 5.0"
+gem 'shoulda-matchers', '~> 5.0'

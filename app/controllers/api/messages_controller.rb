@@ -1,22 +1,26 @@
-class Api::MessagesController < ApplicationController
-  before_action :authenticate_user!
+# frozen_string_literal: true
 
-  def create
-    message = Message.new(message_params)
-    conversation = Conversation.find(message_params[:conversation_id])
+module Api
+  class MessagesController < ApplicationController
+    before_action :authenticate_user!
 
-    if message.save!
-      serialized_data = ActiveModelSerializers::Adapter::Json.new(
-        MessageSerializer.new(message)
-      ).serializable_hash
-      MessagesChannel.broadcast_to conversation, serialized_data
-      head :ok
+    def create
+      message = Message.new(message_params)
+      conversation = Conversation.find(message_params[:conversation_id])
+
+      if message.save!
+        serialized_data = ActiveModelSerializers::Adapter::Json.new(
+          MessageSerializer.new(message)
+        ).serializable_hash
+        MessagesChannel.broadcast_to conversation, serialized_data
+        head :ok
+      end
     end
-  end
 
-  private
+    private
 
-  def message_params
-    params.require(:params).permit(:text, :conversation_id, :user_id)
+    def message_params
+      params.require(:params).permit(:text, :conversation_id, :user_id)
+    end
   end
 end

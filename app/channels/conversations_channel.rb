@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConversationsChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
