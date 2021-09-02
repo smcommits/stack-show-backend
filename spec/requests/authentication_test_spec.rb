@@ -1,7 +1,6 @@
 # spec/requests/authentication_test_spec.rb
 
 require 'rails_helper'
-include ActionController::RespondWith
 
 describe 'Authentication', type: :request do
   before(:each) do
@@ -30,7 +29,7 @@ describe 'Authentication', type: :request do
       expect(JSON.parse(response.body)['errors']['password']).to eq(['is too short (minimum is 6 characters)'])
     end
 
-    it 'returns auth_headers on successful sign_up' do 
+    it 'returns auth_headers on successful sign_up' do
       registration_params['email'] = 'test@example.com'
       registration_params['password'] = '1234678'
       post user_registration_path, params: registration_params

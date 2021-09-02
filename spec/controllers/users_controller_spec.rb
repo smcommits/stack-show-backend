@@ -1,5 +1,4 @@
 require 'rails_helper'
-include ActionController::RespondWith
 
 RSpec.describe Api::UsersController, type: :controller do
   before(:each) do

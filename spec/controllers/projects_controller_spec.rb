@@ -1,5 +1,4 @@
 require 'rails_helper'
-include ActionController::RespondWith
 
 RSpec.describe Api::ProjectsController, type: :controller do
   before(:each) do
