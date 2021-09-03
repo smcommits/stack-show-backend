@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: 'dfsniizqr'
+  api_key: '214176227464638'
+  api_secret: 'nRGgSrJbjbN1prMa_aD11NPfk58'
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: 'dfsniizqr'
+  api_key: '214176227464638'
+  api_secret: 'nRGgSrJbjbN1prMa_aD11NPfk58'
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: 'dfsniizqr'
+  api_key: '214176227464638'
+  api_secret: 'nRGgSrJbjbN1prMa_aD11NPfk58'
+  enhance_image_tag: true
+  static_file_support: false
