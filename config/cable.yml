@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:6ddd5345b709b725fecbf05e7efa11e4@sole.redistogo.com:9560/
+  url: redis://red-cg1pj15269vfsnt8cmn0:6379
   channel_prefix: stack_show_backend_production
