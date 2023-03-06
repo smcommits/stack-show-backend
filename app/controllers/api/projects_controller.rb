@@ -1,6 +1,6 @@
 module Api
   class ProjectsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: :index
     def index
       @projects = Project.paginate(page: params[:page], per_page: 12)
       render json: @projects, page: pagination_dict(@projects)
