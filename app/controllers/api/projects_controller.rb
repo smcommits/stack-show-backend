@@ -2,7 +2,7 @@ module Api
   class ProjectsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     def index
-      @projects = Project.paginate(page: params[:page], per_page: 12)
+      @projects = Project.order(created_at: :desc).paginate(page: params[:page], per_page: 12)
       render json: @projects, meta: { pages: @projects.total_pages }, adapter: :json_api, key_transform: :underscore
     end
 

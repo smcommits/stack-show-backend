@@ -90,6 +90,7 @@ user_images = %w[ndemf32rf6mrnvwaty40
                  zausgeojmvbclerdz6fe
                  pdc9zidn9zsdyngwiwva]
 
+
 user_images.length.times do |i|
   user = User.new(
     name: Faker::Internet.user_name,
