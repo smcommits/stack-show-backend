@@ -5,7 +5,8 @@ module Api
     def index
       @favorite_projects = current_user.favorite_projects.paginate(page: params[:page], per_page: 12)
 
-      render json: @favorite_projects
+      render json: @favorite_projects, adapter: :json_api, key_transform: :underscore
+
     end
 
     def create

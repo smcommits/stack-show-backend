@@ -1,9 +1,9 @@
 module Api
   class ProjectsController < ApplicationController
-    before_action :authenticate_user!, except: :index
+    before_action :authenticate_user!, except: [:index, :show]
     def index
       @projects = Project.paginate(page: params[:page], per_page: 12)
-      render json: @projects, page: pagination_dict(@projects)
+      render json: @projects, meta: { pages: @projects.total_pages }, adapter: :json_api, key_transform: :underscore
     end
 
     def create
@@ -19,7 +19,7 @@ module Api
 
     def show
       @project = Project.with_users_and_ratings(params[:id], current_user)
-      render json: @project
+      render json: @project, adapter: :attributes
     end
 
     private

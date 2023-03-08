@@ -66,4 +66,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore
+  config.action_cable.allowed_request_origins = ['https://25b6-103-109-217-129.in.ngrok.io']
 end

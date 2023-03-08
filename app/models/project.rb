@@ -11,13 +11,13 @@ class Project < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   def self.with_users_and_ratings(id, current_user)
-    is_favorite = current_user.favorites.where('project_id = ?', id)
+    is_favorite = current_user&.favorites&.where('project_id = ?', id)
     project = find(id)
     project.attributes.merge(
       'user' => project.user,
       'average_rating' => project.average_rating,
-      'is_favorite' => is_favorite.exists?,
-      'favorite_id' => is_favorite.first&.id || ''
+      'is_favorite' => is_favorite&.exists?,
+      'favorite_id' => is_favorite&.first&.id || ''
     )
   end
 
